@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react";
+import React,{useState} from "react";
 import './App.css'
 import axios from 'axios'
 
@@ -9,31 +9,22 @@ function App() {
     weather:[{}]
   });
   const [location,setLocation] = useState('')
-//  useEffect(()=>{
-//   async function getData(){
-    const Api = `https://api.openweathermap.org/data/2.5/weather?&appid=de7e9e5cabf1db28201cac646548c99e&q=${location},India&units=metric`
-//     try{
-//       let response = await axios.get(Api)
-//       setWeatherdata(response.data)
-//       console.log(response);
-//     }
-//     catch(err){
-//       console.log(err);
-//     }
-//   }
-//   getData();
 
-//  },[])
+    const Api = `https://api.openweathermap.org/data/2.5/weather?&appid=de7e9e5cabf1db28201cac646548c99e&q=${location},India&units=metric`
+
+
  const searchLocation = (event) =>{
   if(event.key === 'Enter'){
     axios.get(Api).then((response)=>{
       setWeatherdata(response.data)
       console.log(response.data);
     })
+    setLocation("")
   }
  }
   return (
     <div className="home-container">
+    <h1 className="title">Weather App</h1>
     <div className="search">
       <input value={location} onChange={event => setLocation(event.target.value) } onKeyPress={searchLocation} placeholder="Enter Location" type="text" />
     </div>
