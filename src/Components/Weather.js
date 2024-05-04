@@ -7,15 +7,27 @@ function Weather() {
     weather: [{}],
   });
   const [location, setLocation] = useState("");
-
+  const [error, setError] = useState("");
   const Api = `https://api.openweathermap.org/data/2.5/weather?&appid=de7e9e5cabf1db28201cac646548c99e&q=${location},India&units=metric`;
 
   const searchLocation = (event) => {
     if (event.key === "Enter") {
-      axios.get(Api).then((response) => {
-        setWeatherdata(response.data);
-        console.log(response.data);
-      });
+      if (location.trim() === "") {
+        setError("Please enter a valid location", error);
+        alert("Please enter a valid location");
+      } else {
+        axios
+          .get(Api)
+          .then((response) => {
+            setWeatherdata(response.data);
+          })
+          .catch((error) => {
+            setError("location not found");
+            console.log(error);
+            alert("location not found");
+          });
+      }
+
       setLocation("");
     }
   };
