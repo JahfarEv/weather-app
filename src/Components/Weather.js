@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import axios from "axios";
+import React, { useState } from "react";
 
 function Weather() {
   const [weatherData, setWeatherdata] = useState({
@@ -33,8 +33,16 @@ function Weather() {
   };
   return (
     <div className="home-container">
-      <h1 className="title">Weather App</h1>
-      <div className="search">
+      {/* <h1 className="title">Weather App</h1> */}
+      <div className="container">
+      <div className="main-container">
+        <div className="card">
+          <h1>{weatherData.name}</h1>
+          <h1>{`${Math.round(weatherData.main.temp)}`}&deg;C</h1>
+          <h1>{weatherData.weather[0].main}</h1>
+          <h6>{weatherData.weather[0].description}</h6>
+
+          <div className="search">
         <input
           value={location}
           onChange={(event) => setLocation(event.target.value)}
@@ -43,13 +51,9 @@ function Weather() {
           type="text"
         />
       </div>
-      <div className="main-container">
-        <div className="card">
-          <h1>{weatherData.name}</h1>
-          <h1>{`${Math.round(weatherData.main.temp)}`}&deg;C</h1>
-          <h1>{weatherData.weather[0].main}</h1>
-          <h6>{weatherData.weather[0].description}</h6>
         </div>
+      </div>
+     
       </div>
     </div>
   );

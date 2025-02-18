@@ -12,10 +12,14 @@
   background-image: url(lightning-1056419_1280.jpg);
   background-size: cover;
   background-repeat: repeat;
+  
+  
 }
 .title{
+  
   text-align: center;
   color: #f8f8f8;
+  /* margin-top: 20vh; */
 
   
 }
@@ -27,13 +31,20 @@
   padding: .7rem 1.5rem;
   font-size: 1.2rem;
   border-radius: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: none;
   background:rgba(0, 0, 0, 0.272);
   color: #f8f8f8;
+  margin-top: 30px;
+  text-align: center;
 }
 ::placeholder{
   color: #f8f8f8;
 }
+
+/* .container {
+  min-height: 100vh;
+margin-top: 30vh;
+} */
 
 .main-container {
   display: flex;
@@ -46,14 +57,14 @@
 }
 .card {
   width: 400px;
-  height: 300px;
+  height: 400px;
   padding: 2em;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.272);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   text-align: center;
-  margin-bottom: 150px;
+  /* margin-bottom: 150px; */
 }
 h1 {
   font-size: 2.8rem;
